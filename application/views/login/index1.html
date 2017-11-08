@@ -1,0 +1,93 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cargo Courier </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<meta name="keywords" content="Ribbon Login Form Responsive Templates, Iphone Compatible Templates, Smartphone Compatible Templates, Ipad Compatible Templates, Flat Responsive Templates"/>
+<link href="<?php echo base_url();?>assets/login/css/style.css" rel='stylesheet' type='text/css' />
+<!--webfonts-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+<!--/webfonts-->
+</head>
+<body>
+<!--start-main-->
+<h1>Cargo<span>Courier</span></h1>
+<div class="login-box">
+		<form action="<?=site_url('login/validate')?>" method="POST" id="form1">
+			<input type="text" class="text" value="Username" name="username" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
+			<input type="password" value="Password" name="password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+		<div class="remember">
+			<h4>Forgot your password?<a href="#">Click here.</a></h4>
+		</div>
+		<div class="clear"> </div>
+		<div class="btn">
+			<input type="submit" value="LOG IN" >
+		</div>
+        </form>
+		<div class="clear"> </div>
+</div>
+<!--//End-login-form-->
+<!--start-copyright-->
+<div class="copy-right">
+	<p>Powered by <a href="http://w3layouts.com">CREDENCEIS</a></p>
+</div>
+<!--//end-copyright-->		
+</body>
+</html>
+<script type="text/javascript" src="<?php echo base_url();?>assets/ajax/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+            $(function(){
+
+               /* Working code for codeignitor */
+               /* $('#form1').submit(function(evnt){
+                    evnt.preventDefault();
+                    $.ajax("<?=site_url('login/validate')?>",
+                            $("form#form1").serialize(),
+                            function (data) {
+                                $('div#sending_form').prepend(data);
+                            })
+                            .done(function() {
+                                alert( "second success" );
+                            })
+                            .fail(function() {
+                                alert( "error" );
+                            })
+                            .always(function() {
+                                alert( "finished" );
+                            });
+                });*/
+
+            });
+
+
+     function send_data()
+     {
+
+        var tdata= $("#form1").serializeArray();
+
+         $.ajax({
+             type: "POST",
+             url: "<?=site_url('login/validate')?>",
+             dataType: JSON.stringify(),
+             data: tdata,
+
+             success:function(tdata)
+             {
+                 alert('SUCCESS!!');
+             },
+             error: function (XHR, status, response) {
+                 alert('fail');
+             }
+         });
+
+
+     }
+        </script>
